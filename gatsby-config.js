@@ -7,6 +7,7 @@ module.exports = {
     author: `@greenoswaldo23`,
 		siteUrl: `https://zaddytech.com`,
   },
+  pathPrefix: "/zaddytechweb",
   plugins: [
     'gatsby-plugin-react-helmet',
     {
