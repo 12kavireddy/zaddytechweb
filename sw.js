@@ -26,28 +26,24 @@ workbox.clientsClaim();
  */
 self.__precacheManifest = [
   {
-    "url": "webpack-runtime-5b6fae77a41d4d90d4a0.js"
+    "url": "webpack-runtime-07fcb417c57491ef5bb5.js"
   },
   {
     "url": "commons-0ab78b137e9c9503f538.js"
   },
   {
-    "url": "app-64c618ac6d5260ca3748.js"
+    "url": "app-46e85bae2ef7789ba202.js"
   },
   {
     "url": "component---node-modules-gatsby-plugin-offline-app-shell-js-ec1da19b77b8d79a622f.js"
   },
   {
     "url": "offline-plugin-app-shell-fallback/index.html",
-    "revision": "ebc6ab06cdf8f88264a398986700d70d"
-  },
-  {
-    "url": "page-data/offline-plugin-app-shell-fallback/page-data.json",
-    "revision": "c355c8040c47a63bfb3360e4b7cb6553"
+    "revision": "65b210325502e3454f81439446ad613d"
   },
   {
     "url": "manifest.webmanifest",
-    "revision": "9cc8570eeab725ec297bc28358462aec"
+    "revision": "73958181468eee047f01ba6b4b3e544a"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
@@ -66,12 +62,12 @@ const { NavigationRoute } = workbox.routing
 
 const navigationRoute = new NavigationRoute(async ({ event }) => {
   let { pathname } = new URL(event.request.url)
-  pathname = pathname.replace(new RegExp(`^/zaddytechweb`), ``)
+  pathname = pathname.replace(new RegExp(`^`), ``)
 
   // Check for resources + the app bundle
   // The latter may not exist if the SW is updating to a new version
   const resources = await idbKeyval.get(`resources:${pathname}`)
-  if (!resources || !(await caches.match(`/zaddytechweb/app-64c618ac6d5260ca3748.js`))) {
+  if (!resources || !(await caches.match(`/app-46e85bae2ef7789ba202.js`))) {
     return await fetch(event.request)
   }
 
@@ -84,7 +80,7 @@ const navigationRoute = new NavigationRoute(async ({ event }) => {
     }
   }
 
-  const offlineShell = `/zaddytechweb/offline-plugin-app-shell-fallback/index.html`
+  const offlineShell = `/offline-plugin-app-shell-fallback/index.html`
   return await caches.match(offlineShell)
 })
 
