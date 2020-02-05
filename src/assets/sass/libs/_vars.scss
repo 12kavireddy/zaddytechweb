@@ -1,13 +1,13 @@
 // Misc.
 $misc: (
-  bg: #348cb2 url('../images/bg.jpg'),
+  bg: #348cb2 url('../images/bg.jpg') bottom center,
   bg-width: 2000px,
   bg-size: cover
 );
 
 // Duration.
 $duration: (
-  bg: 90s,
+  bg: 180s,
   wrapper: 3s,
   overlay: 1.5s,
   header: 1s,
